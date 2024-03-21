@@ -58,10 +58,27 @@ Criando a pasta do projeto
 
 ```bash
   mkdir registro-ligacoes
+  cd registro-ligacoes
 ```
 
 Criando o projeto NodeJS com NPM
 
 ```bash
   npm init
+```
+
+instalando as bibliotecas necessárias para o projeto
+
+```bash
+  npm install express knex knex-paginate sqlite3 --save # dependência para produção
+  npm i nodemon --save-dev # ambiente de desenvolvimento
+```
+
+Feito os passos anteriores nós vamos ter uma estrutura de pasta parecida com o mostrado abaixo
+
+```bash
+  registro-ligacoes
+    /node_modules
+    package.json
+    package-lock.json
 ```
