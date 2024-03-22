@@ -1,7 +1,7 @@
 import express from 'express'
+import knex from 'knex';
 
 import ligacoesRouter from './routes/registro.js'
-import knex from 'knex';
 import { development } from './knexfile.js';
 
 const app = express();
