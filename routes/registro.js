@@ -18,6 +18,7 @@ router.post('/', authentication, function (req, res) {
     canal: body.canal,
     tipo: body.tipo,
     created_at: '',
+    observacoes: body.observacoes,
     filial: {
       idFilial: body.idFilial,
       nome: ''
@@ -33,6 +34,7 @@ router.post('/', authentication, function (req, res) {
       nomeContato: body.nomeContato,
       canal: body.canal,
       tipo: body.tipo,
+      observacoes: body.observacoes,
       idFilial: data[0].idFilial,
       idUser: user.idUser
     }, ['id', 'idFilial', 'nomeContato', 'canal', 'tipo', 'idUser', 'created_at', 'updated_at']).then((data) => {
@@ -46,6 +48,7 @@ router.post('/', authentication, function (req, res) {
 
 });
 
+// GET /ligacoes - Retorna todas as ligações do usuario
 router.get('/', authentication, function (req, res, next) {
   const { user, query } = req
   console.log(query)
@@ -56,6 +59,7 @@ router.get('/', authentication, function (req, res, next) {
     canal: '',
     tipo: '',
     created_at: '',
+    observacoes: '',
     filial: {
       idFilial: 0,
       nome: ''
@@ -73,6 +77,7 @@ router.get('/', authentication, function (req, res, next) {
         id: item.id,
         nomeContato: item.nomeContato,
         canal: item.canal,
+        observacoes: item.observacoes,
         tipo: item.tipo,
         created_at: item.created_at,
         filial: {
@@ -91,6 +96,7 @@ router.get('/', authentication, function (req, res, next) {
 
 })
 
+// GET /ligacoes/all - Retorna todas as ligações
 router.get('/all', function (req, res) {
   const { query } = req
 
@@ -104,6 +110,7 @@ router.get('/all', function (req, res) {
         nomeContato: item.nomeContato,
         canal: item.canal,
         tipo: item.tipo,
+        observacoes: item.observacoes,
         created_at: item.created_at,
         updated_at: item.updated_at,
         filial: {
@@ -124,6 +131,8 @@ router.get('/all', function (req, res) {
   })
 })
 
+
+// PUT /ligacoes/:id - Atualiza uma ligação
 router.put('/:id', authentication, function (req, res, next) {
   const { body, params } = req
   const { id } = params
@@ -133,6 +142,7 @@ router.put('/:id', authentication, function (req, res, next) {
     canal: body.canal,
     tipo: body.tipo,
     idFilial: body.idFilial,
+    observacoes: body.observacoes,
     updated_at: new Date().toISOString().slice(0, 19).replace('T', ' ')
   }, ['id', 'idFilial', 'nomeContato', 'canal', 'tipo', 'created_at', 'updated_at']).then((data) => {
     res.status(200).json(data);
@@ -142,6 +152,8 @@ router.put('/:id', authentication, function (req, res, next) {
   })
 })
 
+
+// DELETE /ligacoes/:id - Deleta uma ligação
 router.delete('/:id', authentication, function (req, res, next) {
   const { params } = req
   const { id } = params

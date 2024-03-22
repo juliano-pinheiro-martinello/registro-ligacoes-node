@@ -1,4 +1,3 @@
-
 # O que precisamos para trabalhar para esse projeto?
 
 - Nodejs
@@ -6,16 +5,16 @@
 - SQLite3
 
 ## Como instalar NodeJs
-  
+
 ### Linux
 
-  Recomendo uso do NVM (Node Version Management)
+Recomendo uso do NVM (Node Version Management)
 
-  ```bash
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-  ```
+  wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
 
 Depois de instalado é necessário acrescentar o codigo abaixo ao `~/.bash_profile`, `~/.bashrc`, `~/.zshrc`.
 
@@ -109,7 +108,7 @@ app.listen(port, () =>{
 })
 ```
 
-### Código criado como rodar meu programa?
+### Código criado, como rodar meu programa?
 
 Para fazer nossa pequena API funcionar basta usar o comando `node app.js` e abrir o link no navegador.
 
@@ -117,27 +116,26 @@ Mas para maior praticidade vamos usar a biblioteca do `nodemon` para facilitar n
 
 ```json
 {
-  "name": "registro-ligacoes-node",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "type": "module", // indica para o Node usar o sistema de modules do JS, por exemplo usar o `import`
-  "scripts": {
-    "dev": "nodemon app.js" // cria um script para automatizar tarefas ex: `npm run dev`
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.3",
-    "knex": "^3.1.0",
-    "knex-paginate": "^3.1.1",
-    "sqlite3": "^5.1.7"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
-  }
+	"name": "registro-ligacoes-node",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"type": "module", // indica para o Node usar o sistema de modules do JS, por exemplo usar o `import`
+	"scripts": {
+		"dev": "nodemon app.js" // cria um script para automatizar tarefas ex: `npm run dev`
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.3",
+		"knex": "^3.1.0",
+		"knex-paginate": "^3.1.1",
+		"sqlite3": "^5.1.7"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.0"
+	}
 }
-
 ```
 
 Com as alterações feitas basta usar o comando `npm run dev` para executar o script e deixar que o `nodemon` fique procurando por alterações no código e automaticamente faca o reload da API.

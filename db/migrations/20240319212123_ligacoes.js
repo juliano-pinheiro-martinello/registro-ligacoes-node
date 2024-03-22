@@ -20,7 +20,7 @@ export function up(knex) {
       table.timestamp('created_at').defaultTo(knex.fn.now());
       table.timestamp('updated_at').defaultTo(knex.fn.now());
       table.string('canal');
-      table.string('observacoes')
+      table.string('observacoes');
       table.string('tipo');
       table.integer('idUser').references('idUser').inTable('users');
     })
