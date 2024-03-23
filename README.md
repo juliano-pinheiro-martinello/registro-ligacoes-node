@@ -70,7 +70,7 @@ instalando as bibliotecas necessárias para o projeto
 
 ```bash
   npm install express knex knex-paginate sqlite3 --save # dependência para produção
-  npm i nodemon --save-dev # ambiente de desenvolvimento
+  npm install nodemon --save-dev # ambiente de desenvolvimento
 ```
 
 Feito os passos anteriores nós vamos ter uma estrutura de pasta parecida com o mostrado abaixo
@@ -99,12 +99,12 @@ import express from `express`
 const app = express()
 const port = 3010
 
-app.route('/', function (req, res)=>{
+app.get('/', function (req, res)=>{
   res.status(200).json({mensagem: 'Hello World'})
 })
 
 app.listen(port, () =>{
-  console.log(`Respondendo na URL http://localhost${port}`)
+  console.log(`Respondendo na URL http://localhost:${port}`)
 })
 ```
 
